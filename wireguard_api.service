@@ -1,0 +1,14 @@
+[Unit]
+Description=wireguard_api
+After=network.target
+[Service]
+ExecStart=/usr/bin/wireguard_api
+WorkingDirectory=/usr/bin/
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+User=root
+Group=root
+[Install]
+WantedBy=multi-user.target
