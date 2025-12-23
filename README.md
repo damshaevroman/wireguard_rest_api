@@ -12,15 +12,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-**coverage: 80.0% of statements**
-ok      wireguard_api/controllers       (cached)        coverage: 48.7% of statements
-ok      wireguard_api/db                (cached)        coverage: 75.0% of statements
-ok      wireguard_api/iptablerules      (cached)        coverage: 67.8% of statements
-ok      wireguard_api/pingstatus        (cached)        coverage: 76.7% of statements
-ok      wireguard_api/repository        (cached)        coverage: 38.3% of statements
-ok      wireguard_api/usecases          (cached)        coverage: 0.0% of statements [no tests to run]
-        wireguard_api/webserver         coverage: 0.0% of statements
-ok      wireguard_api/wg                (cached)        coverage: 62.5% of statements
+**Test coverage: 80.0% of statements**
 
 ---
 
