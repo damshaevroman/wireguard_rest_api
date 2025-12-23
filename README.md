@@ -16,28 +16,13 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-## Script start
+## Quick start
 1. **Download the Project**: Clone or download the project to a machine running the appropriate Linux distribution.
 2. **Go to working directory**
-3. **Enter command**: sudo sh start.sh
-
-## Start manually
-
-1. **Download the Project**: Clone or download the project to a machine running the appropriate Linux distribution.
-2. **Configuration File**: Go project directory and enter go build main.go 
-3. **Copy File command**:  sudo cp main /usr/bin/wireguard-rest  
-4. **Copy configuration file command**: sudo cp wireguard_api.cfg /etc/wireguard_api.cfg 
-5. **Edit the config file**:
-   - `[Server]`
-   - `ip_port = 0.0.0.0:8888`  # 0.0.0.0 listens on all network interfaces
-   - `tls_private =`  # Path to 'privkey.pem'; if not found, the server will generate a self-signed certificate
-   - `tls_public =`   # Path to 'fullchain.pem'; if not found, the server will generate a self-signed certificate
-   - `database =`     # Path to the database; if it doesn't exist, it will be created
-
-6. **Copy systemd file command**: sudo cp wireguard-rest.service /lib/systemd/system/wireguard-rest.service
-7. **Enable autoload command**: sudo systemctl enable wireguard-rest.service
-8. **Start service command**: sudo systemctl start wireguard-rest.service
-7. **Check service command**: sudo systemctl status wireguard-rest.service
+3. **Compile the binary** go build -o wireguard-rest main.go (golang should be installed before)
+4. **Copy files to server where your service will work** wireguard-rest,wireguard_api.cfg, wireguard-rest.service, start.sh
+5. **Go to directory there copied files and enter command**: sudo sh start.sh
+6. **Check service command**: sudo systemctl status wireguard-rest.service
 
 ---
 
