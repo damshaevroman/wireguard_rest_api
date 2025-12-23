@@ -31,7 +31,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 ### 1. Create Server Certificates and Interface
 
 - **Method**: `POST`
-- **URL**: `http://127.0.0.1:8888/server/new`
+- **URL**: `http://127.0.0.1:8888/interface/new`
 - **Authorization**: Bearer Token
 
 #### Request Body
@@ -73,7 +73,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 ### 2. Delete Server Interface and сertificates
 
 - **Method**: `DELETE`
-- **URL**: `http://127.0.0.1:8888/server`
+- **URL**: `http://127.0.0.1:8888/interface`
 - **Authorization**: Bearer Token
 
 #### Request Body
@@ -103,7 +103,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 ### 3. Get Deleted Server Certificates
 
 - **Method**: `GET`
-- **URL**: `http://127.0.0.1:8888/server/archive`
+- **URL**: `http://127.0.0.1:8888/interface/archive`
 - **Authorization**: Bearer Token
 
 #### Example Response
@@ -126,10 +126,38 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-### 4. Up interface
+### 4. Get interfaces list
+
+- **Method**: `GET`
+- **URL**: `https://127.0.0.1:8888/interface/all`
+- **Authorization**: Bearer Token
+
+#### Example Response
+
+```json
+{
+  "result": [
+    {
+      "ifname": "test",
+      "ip": "192.168.32.1/24",
+      "port": 9999,
+      "private": "6E2TMoWaadmPHgnxDf+PUP+liMhWgz/KrPiJRajpq0E=",
+      "public": "TEnNkVFLvKzXyJV/9yaLlg1QcR+GA8+slyAC+1NvU2s=",
+      "endpoint": "10.19.44.251",
+      "config": ""
+    }
+  ]
+}
+```
+
+---
+
+
+
+### 5. Up interface
 
 - **Method**: `POST`
-- **URL**: `http://127.0.0.1:8888/server/start`
+- **URL**: `http://127.0.0.1:8888/interface/start`
 - **Authorization**: Bearer Token
 
 #### Request Body
@@ -150,10 +178,10 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 ---
 
 
-### 5. Shutdown interface
+### 6. Shutdown interface
 
 - **Method**: `POST`
-- **URL**: `http://127.0.0.1:8888/server/stop`
+- **URL**: `http://127.0.0.1:8888/interface/stop`
 - **Authorization**: Bearer Token
 
 #### Request Body
@@ -176,7 +204,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 
 
-### 6. Create New Client Certificate
+### 7. Create New Client Certificate
 
 - **Method**: `POST`
 - **URL**: `http://127.0.0.1:8888/clients/new`
@@ -208,7 +236,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-### 7. Delete Client Certificate
+### 8. Delete Client Certificate
 
 - **Method**: `DELETE`
 - **URL**: `http://127.0.0.1:8888/clients`
@@ -232,7 +260,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-### 8. Get Deleted Client Certificates
+### 9. Get Deleted Client Certificates
 
 - **Method**: `GET`
 - **URL**: `http://127.0.0.1:8888/clients/archive`
@@ -256,7 +284,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-### 9. Get Connection Status
+### 10. Get Connection Status
 
 - **Method**: `GET`
 - **URL**: `http://127.0.0.1:8888/clients/status`
@@ -290,7 +318,7 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 
 ---
 
-### 10. Get All Client Certificates
+### 11. Get All Client Certificates
 
 - **Method**: `GET`
 - **URL**: `http://127.0.0.1:8888/clients/getall`
