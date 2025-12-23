@@ -30,7 +30,6 @@ Documentation, you can check out the [Postman API Documentation](https://documen
 5. **Edit the config file**:
    - `[Server]`
    - `ip_port = 0.0.0.0:8888`  # 0.0.0.0 listens on all network interfaces
-   - `use_tls = true`  # true/false, determines if TLS is used
    - `tls_private =`  # Path to 'privkey.pem'; if not found, the server will generate a self-signed certificate
    - `tls_public =`   # Path to 'fullchain.pem'; if not found, the server will generate a self-signed certificate
    - `database =`     # Path to the database; if it doesn't exist, it will be created
