@@ -70,7 +70,7 @@ type PingService interface {
 	Delete(ip string)
 }
 
-type Service interface {
+type UsecaseService interface {
 	GetStatus() ([]InterfaceListStatus, error)
 
 	GetAllClients() ([]ClientResponse, error)

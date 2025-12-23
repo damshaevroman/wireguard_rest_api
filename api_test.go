@@ -1,5 +1,7 @@
-package main
+integration
+// +build integration
 
+package p
 import (
 	"bytes"
 	"crypto/tls"

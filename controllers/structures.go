@@ -6,7 +6,7 @@ import (
 )
 
 type Controller struct {
-	Service usecases.Service
+	service usecases.UsecaseService
 	cfg     *config.ServerConfig
 }
 

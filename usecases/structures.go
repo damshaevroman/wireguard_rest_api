@@ -9,8 +9,9 @@ type Usecases struct {
 	ClientRepo ClientRepo
 	IpTables   IPTables
 	PingStatus PingService
-	Service    Service
 }
+
+var _ UsecaseService = (*Usecases)(nil)
 
 type ClientResponsePing struct {
 	Status   bool  `json:"status"`

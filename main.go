@@ -34,7 +34,7 @@ func main() {
 		ServerRepo: repository.NewServerCertRepository(db.DbInstance),
 		ClientRepo: repository.NewClientCertRepository(db.DbInstance),
 		IpTables:   iptablerules.Init(ipt),
-		PingStatus: pingstatus.Init(),
+		PingStatus: pingstatus.Init(pingstatus.NewICMPFactory()),
 	}
 	ctx, cancel := context.WithCancel(context.Background())
 	sigs := make(chan os.Signal, 1)

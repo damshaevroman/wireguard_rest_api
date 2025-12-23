@@ -168,7 +168,8 @@ func (u *Usecases) DeleteServer(private, ifname string) error {
 }
 
 func (u *Usecases) StopInterface(ifname string) error {
-	err := wg.CheckUpInterface(ifname)
+
+	err := wg.CheckUpInterface(wg.NewWGFactory(), ifname)
 	if err == nil {
 		log.Printf("StopInterface %v", err)
 		return nil
@@ -178,7 +179,7 @@ func (u *Usecases) StopInterface(ifname string) error {
 }
 
 func (u *Usecases) StartInterface(ifname string) error {
-	err := wg.CheckUpInterface(ifname)
+	err := wg.CheckUpInterface(wg.NewWGFactory(), ifname)
 	if err != nil {
 		if err.Error() == fmt.Sprintf("exist up interface %s", ifname) {
 			return nil

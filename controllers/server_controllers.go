@@ -17,7 +17,7 @@ func (ctrl *Controller) CtrlDeleteServer(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	err = ctrl.Service.DeleteServer(ser.Private, ser.Ifname)
+	err = ctrl.service.DeleteServer(ser.Private, ser.Ifname)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -32,7 +32,7 @@ func (ctrl *Controller) CtrlStopServer(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	err = ctrl.Service.StopInterface(ser.Ifname)
+	err = ctrl.service.StopInterface(ser.Ifname)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -47,7 +47,7 @@ func (ctrl *Controller) CtrlStartServer(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	err = ctrl.Service.StartInterface(ser.Ifname)
+	err = ctrl.service.StartInterface(ser.Ifname)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -63,7 +63,7 @@ func (ctrl *Controller) SetForward(c *gin.Context) {
 		return
 	}
 	comment := strings.ReplaceAll(ser.Comment, " ", "_")
-	err = ctrl.Service.SetUsForward(ser.Position, ser.Action, ser.Command, ser.Source, ser.Destination, ser.Protocol, ser.Port, comment, ser.List, ser.Except)
+	err = ctrl.service.SetUsForward(ser.Position, ser.Action, ser.Command, ser.Source, ser.Destination, ser.Protocol, ser.Port, comment, ser.List, ser.Except)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -78,7 +78,7 @@ func (ctrl *Controller) SetForwardUpdateList(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	err = ctrl.Service.UpdateIpSetList(ser.Command, ser.IpsetName, ser.IpList, ser.Single)
+	err = ctrl.service.UpdateIpSetList(ser.Command, ser.IpsetName, ser.IpList, ser.Single)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -94,7 +94,7 @@ func (ctrl *Controller) SetMasquerade(c *gin.Context) {
 		return
 	}
 	comment := strings.ReplaceAll(ser.Comment, " ", "_")
-	err = ctrl.Service.SetUsMasquerade(ser.Command, ser.Source, ser.Ifname, comment)
+	err = ctrl.service.SetUsMasquerade(ser.Command, ser.Source, ser.Ifname, comment)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -103,7 +103,7 @@ func (ctrl *Controller) SetMasquerade(c *gin.Context) {
 }
 
 func (ctrl *Controller) CtrlGetServerArchive(c *gin.Context) {
-	data, err := ctrl.Service.GetServerArchive()
+	data, err := ctrl.service.GetServerArchive()
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -112,7 +112,7 @@ func (ctrl *Controller) CtrlGetServerArchive(c *gin.Context) {
 }
 
 func (ctrl *Controller) CtrlGetInterfaces(c *gin.Context) {
-	data, err := ctrl.Service.GetServerInterfaces()
+	data, err := ctrl.service.GetServerInterfaces()
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -121,7 +121,7 @@ func (ctrl *Controller) CtrlGetInterfaces(c *gin.Context) {
 }
 
 func (ctrl *Controller) CtrlGetIptables(c *gin.Context) {
-	data, err := ctrl.Service.GetIptablesRules()
+	data, err := ctrl.service.GetIptablesRules()
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return

@@ -7,12 +7,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func NewController(service *usecases.Usecases, cfg *config.ServerConfig) *Controller {
-	return &Controller{Service: service}
+func NewController(service usecases.UsecaseService, cfg *config.ServerConfig) *Controller {
+	return &Controller{
+		service: service,
+		cfg:     cfg,
+	}
 }
 
 func (ctrl *Controller) GetStatus(c *gin.Context) {
-	data, err := ctrl.Service.GetStatus()
+	data, err := ctrl.service.GetStatus()
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -21,7 +24,7 @@ func (ctrl *Controller) GetStatus(c *gin.Context) {
 }
 
 func (ctrl *Controller) GetAllClients(c *gin.Context) {
-	data, err := ctrl.Service.GetAllClients()
+	data, err := ctrl.service.GetAllClients()
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -36,7 +39,7 @@ func (ctrl *Controller) AddClient(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	data, err := ctrl.Service.NewClient(dataJson.Ifname, dataJson.Ip, dataJson.AllowedIp)
+	data, err := ctrl.service.NewClient(dataJson.Ifname, dataJson.Ip, dataJson.AllowedIp)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -51,7 +54,7 @@ func (ctrl *Controller) AddInterface(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	data, err := ctrl.Service.NewInterface(dataJson.Ifname, dataJson.Ip, dataJson.Endpoint, dataJson.Port)
+	data, err := ctrl.service.NewInterface(dataJson.Ifname, dataJson.Ip, dataJson.Endpoint, dataJson.Port)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -70,7 +73,7 @@ func (ctrl *Controller) DeleteClient(c *gin.Context) {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
 	}
-	err = ctrl.Service.DeleteClient(client.Public)
+	err = ctrl.service.DeleteClient(client.Public)
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return
@@ -79,7 +82,7 @@ func (ctrl *Controller) DeleteClient(c *gin.Context) {
 }
 
 func (ctrl *Controller) GetClientArchive(c *gin.Context) {
-	data, err := ctrl.Service.GetClientArchive()
+	data, err := ctrl.service.GetClientArchive()
 	if err != nil {
 		c.JSON(500, gin.H{"result": err.Error()})
 		return

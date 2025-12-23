@@ -22,12 +22,20 @@ type ServerConfig struct {
 
 func LoadConfig(path string) (*ServerConfig, error) {
 	cfg := &ServerConfig{}
-	err := ini.MapTo(cfg, path)
+
+	iniFile, err := ini.Load(path)
 	if err != nil {
-		return nil, fmt.Errorf("failed to load config: %w", err)
+		return nil, err
 	}
+
+	err = iniFile.Section("Server").MapTo(cfg)
+	if err != nil {
+		return nil, err
+	}
+
 	if cfg.Token == "" {
 		return nil, fmt.Errorf("empty token — please check config")
 	}
+
 	return cfg, nil
 }

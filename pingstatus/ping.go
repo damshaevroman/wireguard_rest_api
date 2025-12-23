@@ -13,20 +13,43 @@ import (
 	"golang.org/x/net/ipv4"
 )
 
+type ICMPConn interface {
+	WriteTo([]byte, net.Addr) (int, error)
+	ReadFrom([]byte) (int, net.Addr, error)
+	SetReadDeadline(time.Time) error
+	Close() error
+}
+
+type ICMPFactory interface {
+	Listen() (ICMPConn, error)
+}
+
+func NewICMPFactory() ICMPFactory {
+	return &RealICMPFactory{}
+}
+
+type RealICMPFactory struct{}
+
+func (f *RealICMPFactory) Listen() (ICMPConn, error) {
+	return icmp.ListenPacket("ip4:icmp", "0.0.0.0")
+}
+
 type PingStatus struct {
 	Mu         sync.Mutex
 	PingStatus map[string]pingStatus
+	Factory    ICMPFactory
+}
+
+func Init(factory ICMPFactory) *PingStatus {
+	return &PingStatus{
+		PingStatus: make(map[string]pingStatus),
+		Factory:    factory,
+	}
 }
 
 type pingStatus struct {
 	Status   bool
 	PintTime time.Duration
-}
-
-func Init() *PingStatus {
-	return &PingStatus{
-		PingStatus: make(map[string]pingStatus),
-	}
 }
 
 func (u *PingStatus) Ping(target string, wg *sync.WaitGroup) {
@@ -47,7 +70,7 @@ func (u *PingStatus) Ping(target string, wg *sync.WaitGroup) {
 		return
 	}
 
-	conn, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
+	conn, err := u.Factory.Listen()
 	if err != nil {
 		log.Printf("ping 2: %s", err.Error())
 		return

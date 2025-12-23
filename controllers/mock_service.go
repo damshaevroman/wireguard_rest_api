@@ -509,31 +509,31 @@ func (mr *MockPingServiceMockRecorder) Read(ip interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Read", reflect.TypeOf((*MockPingService)(nil).Read), ip)
 }
 
-// MockService is a mock of Service interface.
-type MockService struct {
+// MockUsecaseService is a mock of UsecaseService interface.
+type MockUsecaseService struct {
 	ctrl     *gomock.Controller
-	recorder *MockServiceMockRecorder
+	recorder *MockUsecaseServiceMockRecorder
 }
 
-// MockServiceMockRecorder is the mock recorder for MockService.
-type MockServiceMockRecorder struct {
-	mock *MockService
+// MockUsecaseServiceMockRecorder is the mock recorder for MockUsecaseService.
+type MockUsecaseServiceMockRecorder struct {
+	mock *MockUsecaseService
 }
 
-// NewMockService creates a new mock instance.
-func NewMockService(ctrl *gomock.Controller) *MockService {
-	mock := &MockService{ctrl: ctrl}
-	mock.recorder = &MockServiceMockRecorder{mock}
+// NewMockUsecaseService creates a new mock instance.
+func NewMockUsecaseService(ctrl *gomock.Controller) *MockUsecaseService {
+	mock := &MockUsecaseService{ctrl: ctrl}
+	mock.recorder = &MockUsecaseServiceMockRecorder{mock}
 	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
-func (m *MockService) EXPECT() *MockServiceMockRecorder {
+func (m *MockUsecaseService) EXPECT() *MockUsecaseServiceMockRecorder {
 	return m.recorder
 }
 
 // DeleteClient mocks base method.
-func (m *MockService) DeleteClient(public string) error {
+func (m *MockUsecaseService) DeleteClient(public string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "DeleteClient", public)
 	ret0, _ := ret[0].(error)
@@ -541,13 +541,13 @@ func (m *MockService) DeleteClient(public string) error {
 }
 
 // DeleteClient indicates an expected call of DeleteClient.
-func (mr *MockServiceMockRecorder) DeleteClient(public interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) DeleteClient(public interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteClient", reflect.TypeOf((*MockService)(nil).DeleteClient), public)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteClient", reflect.TypeOf((*MockUsecaseService)(nil).DeleteClient), public)
 }
 
 // DeleteServer mocks base method.
-func (m *MockService) DeleteServer(private, ifname string) error {
+func (m *MockUsecaseService) DeleteServer(private, ifname string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "DeleteServer", private, ifname)
 	ret0, _ := ret[0].(error)
@@ -555,13 +555,13 @@ func (m *MockService) DeleteServer(private, ifname string) error {
 }
 
 // DeleteServer indicates an expected call of DeleteServer.
-func (mr *MockServiceMockRecorder) DeleteServer(private, ifname interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) DeleteServer(private, ifname interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteServer", reflect.TypeOf((*MockService)(nil).DeleteServer), private, ifname)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteServer", reflect.TypeOf((*MockUsecaseService)(nil).DeleteServer), private, ifname)
 }
 
 // GetAllClients mocks base method.
-func (m *MockService) GetAllClients() ([]usecases.ClientResponse, error) {
+func (m *MockUsecaseService) GetAllClients() ([]usecases.ClientResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetAllClients")
 	ret0, _ := ret[0].([]usecases.ClientResponse)
@@ -570,13 +570,13 @@ func (m *MockService) GetAllClients() ([]usecases.ClientResponse, error) {
 }
 
 // GetAllClients indicates an expected call of GetAllClients.
-func (mr *MockServiceMockRecorder) GetAllClients() *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) GetAllClients() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetAllClients", reflect.TypeOf((*MockService)(nil).GetAllClients))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetAllClients", reflect.TypeOf((*MockUsecaseService)(nil).GetAllClients))
 }
 
 // GetClientArchive mocks base method.
-func (m *MockService) GetClientArchive() ([]usecases.ClientResponse, error) {
+func (m *MockUsecaseService) GetClientArchive() ([]usecases.ClientResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetClientArchive")
 	ret0, _ := ret[0].([]usecases.ClientResponse)
@@ -585,13 +585,13 @@ func (m *MockService) GetClientArchive() ([]usecases.ClientResponse, error) {
 }
 
 // GetClientArchive indicates an expected call of GetClientArchive.
-func (mr *MockServiceMockRecorder) GetClientArchive() *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) GetClientArchive() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetClientArchive", reflect.TypeOf((*MockService)(nil).GetClientArchive))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetClientArchive", reflect.TypeOf((*MockUsecaseService)(nil).GetClientArchive))
 }
 
 // GetIptablesRules mocks base method.
-func (m *MockService) GetIptablesRules() (usecases.IptablesRulesData, error) {
+func (m *MockUsecaseService) GetIptablesRules() (usecases.IptablesRulesData, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetIptablesRules")
 	ret0, _ := ret[0].(usecases.IptablesRulesData)
@@ -600,13 +600,13 @@ func (m *MockService) GetIptablesRules() (usecases.IptablesRulesData, error) {
 }
 
 // GetIptablesRules indicates an expected call of GetIptablesRules.
-func (mr *MockServiceMockRecorder) GetIptablesRules() *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) GetIptablesRules() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetIptablesRules", reflect.TypeOf((*MockService)(nil).GetIptablesRules))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetIptablesRules", reflect.TypeOf((*MockUsecaseService)(nil).GetIptablesRules))
 }
 
 // GetServerArchive mocks base method.
-func (m *MockService) GetServerArchive() ([]usecases.ServerInterfaces, error) {
+func (m *MockUsecaseService) GetServerArchive() ([]usecases.ServerInterfaces, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetServerArchive")
 	ret0, _ := ret[0].([]usecases.ServerInterfaces)
@@ -615,13 +615,13 @@ func (m *MockService) GetServerArchive() ([]usecases.ServerInterfaces, error) {
 }
 
 // GetServerArchive indicates an expected call of GetServerArchive.
-func (mr *MockServiceMockRecorder) GetServerArchive() *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) GetServerArchive() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetServerArchive", reflect.TypeOf((*MockService)(nil).GetServerArchive))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetServerArchive", reflect.TypeOf((*MockUsecaseService)(nil).GetServerArchive))
 }
 
 // GetServerInterfaces mocks base method.
-func (m *MockService) GetServerInterfaces() ([]usecases.ServerInterfaces, error) {
+func (m *MockUsecaseService) GetServerInterfaces() ([]usecases.ServerInterfaces, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetServerInterfaces")
 	ret0, _ := ret[0].([]usecases.ServerInterfaces)
@@ -630,13 +630,13 @@ func (m *MockService) GetServerInterfaces() ([]usecases.ServerInterfaces, error)
 }
 
 // GetServerInterfaces indicates an expected call of GetServerInterfaces.
-func (mr *MockServiceMockRecorder) GetServerInterfaces() *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) GetServerInterfaces() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetServerInterfaces", reflect.TypeOf((*MockService)(nil).GetServerInterfaces))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetServerInterfaces", reflect.TypeOf((*MockUsecaseService)(nil).GetServerInterfaces))
 }
 
 // GetStatus mocks base method.
-func (m *MockService) GetStatus() ([]usecases.InterfaceListStatus, error) {
+func (m *MockUsecaseService) GetStatus() ([]usecases.InterfaceListStatus, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetStatus")
 	ret0, _ := ret[0].([]usecases.InterfaceListStatus)
@@ -645,13 +645,13 @@ func (m *MockService) GetStatus() ([]usecases.InterfaceListStatus, error) {
 }
 
 // GetStatus indicates an expected call of GetStatus.
-func (mr *MockServiceMockRecorder) GetStatus() *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) GetStatus() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetStatus", reflect.TypeOf((*MockService)(nil).GetStatus))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetStatus", reflect.TypeOf((*MockUsecaseService)(nil).GetStatus))
 }
 
 // NewClient mocks base method.
-func (m *MockService) NewClient(ifname, ip, allowed string) (usecases.ClientResponse, error) {
+func (m *MockUsecaseService) NewClient(ifname, ip, allowed string) (usecases.ClientResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "NewClient", ifname, ip, allowed)
 	ret0, _ := ret[0].(usecases.ClientResponse)
@@ -660,13 +660,13 @@ func (m *MockService) NewClient(ifname, ip, allowed string) (usecases.ClientResp
 }
 
 // NewClient indicates an expected call of NewClient.
-func (mr *MockServiceMockRecorder) NewClient(ifname, ip, allowed interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) NewClient(ifname, ip, allowed interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "NewClient", reflect.TypeOf((*MockService)(nil).NewClient), ifname, ip, allowed)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "NewClient", reflect.TypeOf((*MockUsecaseService)(nil).NewClient), ifname, ip, allowed)
 }
 
 // NewInterface mocks base method.
-func (m *MockService) NewInterface(ifname, ip, endpoint string, port int) (usecases.ServerInterfaces, error) {
+func (m *MockUsecaseService) NewInterface(ifname, ip, endpoint string, port int) (usecases.ServerInterfaces, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "NewInterface", ifname, ip, endpoint, port)
 	ret0, _ := ret[0].(usecases.ServerInterfaces)
@@ -675,13 +675,13 @@ func (m *MockService) NewInterface(ifname, ip, endpoint string, port int) (useca
 }
 
 // NewInterface indicates an expected call of NewInterface.
-func (mr *MockServiceMockRecorder) NewInterface(ifname, ip, endpoint, port interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) NewInterface(ifname, ip, endpoint, port interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "NewInterface", reflect.TypeOf((*MockService)(nil).NewInterface), ifname, ip, endpoint, port)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "NewInterface", reflect.TypeOf((*MockUsecaseService)(nil).NewInterface), ifname, ip, endpoint, port)
 }
 
 // SetUsForward mocks base method.
-func (m *MockService) SetUsForward(position int, action, command, source, destination, protocol, port, comment string, isList, except bool) error {
+func (m *MockUsecaseService) SetUsForward(position int, action, command, source, destination, protocol, port, comment string, isList, except bool) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetUsForward", position, action, command, source, destination, protocol, port, comment, isList, except)
 	ret0, _ := ret[0].(error)
@@ -689,13 +689,13 @@ func (m *MockService) SetUsForward(position int, action, command, source, destin
 }
 
 // SetUsForward indicates an expected call of SetUsForward.
-func (mr *MockServiceMockRecorder) SetUsForward(position, action, command, source, destination, protocol, port, comment, isList, except interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) SetUsForward(position, action, command, source, destination, protocol, port, comment, isList, except interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetUsForward", reflect.TypeOf((*MockService)(nil).SetUsForward), position, action, command, source, destination, protocol, port, comment, isList, except)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetUsForward", reflect.TypeOf((*MockUsecaseService)(nil).SetUsForward), position, action, command, source, destination, protocol, port, comment, isList, except)
 }
 
 // SetUsMasquerade mocks base method.
-func (m *MockService) SetUsMasquerade(command, source, ifname, comment string) error {
+func (m *MockUsecaseService) SetUsMasquerade(command, source, ifname, comment string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetUsMasquerade", command, source, ifname, comment)
 	ret0, _ := ret[0].(error)
@@ -703,13 +703,13 @@ func (m *MockService) SetUsMasquerade(command, source, ifname, comment string) e
 }
 
 // SetUsMasquerade indicates an expected call of SetUsMasquerade.
-func (mr *MockServiceMockRecorder) SetUsMasquerade(command, source, ifname, comment interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) SetUsMasquerade(command, source, ifname, comment interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetUsMasquerade", reflect.TypeOf((*MockService)(nil).SetUsMasquerade), command, source, ifname, comment)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetUsMasquerade", reflect.TypeOf((*MockUsecaseService)(nil).SetUsMasquerade), command, source, ifname, comment)
 }
 
 // StartInterface mocks base method.
-func (m *MockService) StartInterface(ifname string) error {
+func (m *MockUsecaseService) StartInterface(ifname string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "StartInterface", ifname)
 	ret0, _ := ret[0].(error)
@@ -717,13 +717,13 @@ func (m *MockService) StartInterface(ifname string) error {
 }
 
 // StartInterface indicates an expected call of StartInterface.
-func (mr *MockServiceMockRecorder) StartInterface(ifname interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) StartInterface(ifname interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "StartInterface", reflect.TypeOf((*MockService)(nil).StartInterface), ifname)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "StartInterface", reflect.TypeOf((*MockUsecaseService)(nil).StartInterface), ifname)
 }
 
 // StopInterface mocks base method.
-func (m *MockService) StopInterface(ifname string) error {
+func (m *MockUsecaseService) StopInterface(ifname string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "StopInterface", ifname)
 	ret0, _ := ret[0].(error)
@@ -731,13 +731,13 @@ func (m *MockService) StopInterface(ifname string) error {
 }
 
 // StopInterface indicates an expected call of StopInterface.
-func (mr *MockServiceMockRecorder) StopInterface(ifname interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) StopInterface(ifname interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "StopInterface", reflect.TypeOf((*MockService)(nil).StopInterface), ifname)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "StopInterface", reflect.TypeOf((*MockUsecaseService)(nil).StopInterface), ifname)
 }
 
 // UpdateIpSetList mocks base method.
-func (m *MockService) UpdateIpSetList(command, name string, ipList []string, single bool) error {
+func (m *MockUsecaseService) UpdateIpSetList(command, name string, ipList []string, single bool) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "UpdateIpSetList", command, name, ipList, single)
 	ret0, _ := ret[0].(error)
@@ -745,7 +745,7 @@ func (m *MockService) UpdateIpSetList(command, name string, ipList []string, sin
 }
 
 // UpdateIpSetList indicates an expected call of UpdateIpSetList.
-func (mr *MockServiceMockRecorder) UpdateIpSetList(command, name, ipList, single interface{}) *gomock.Call {
+func (mr *MockUsecaseServiceMockRecorder) UpdateIpSetList(command, name, ipList, single interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateIpSetList", reflect.TypeOf((*MockService)(nil).UpdateIpSetList), command, name, ipList, single)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateIpSetList", reflect.TypeOf((*MockUsecaseService)(nil).UpdateIpSetList), command, name, ipList, single)
 }
